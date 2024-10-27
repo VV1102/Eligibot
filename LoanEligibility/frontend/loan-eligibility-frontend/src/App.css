@@ -1,0 +1,185 @@
+/* App container styling */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000000; /* Black background */
+  color: #ffffff; /* White text for contrast */
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+  position: relative; /* For positioning background patterns */
+}
+
+/* Add CSS designs in the background */
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(255, 0, 255, 0.1), transparent 50%);
+  z-index: 0; /* Behind all content */
+  opacity: 0.5; /* Faded for subtlety */
+  pointer-events: none; /* Prevent interactions */
+}
+
+/* Title styling */
+.app-title {
+  font-size: 2.8rem; /* Increased size for visibility */
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 0.5s ease; /* Animation for title */
+  color: #800080; /* Neon purple color for the title */
+  position: relative; /* For stacking context */
+  z-index: 1; /* Bring title above the background */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Light shadow for depth */
+}
+
+/* Main content layout */
+.main-content {
+  display: flex;
+  justify-content: space-between; /* Space out elements horizontally */
+  width: 100%;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  max-width: 1200px; /* Limit maximum width */
+}
+
+/* Loan form styling */
+.loan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(30, 30, 30, 0.8); /* Darker background for the form */
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #800080; /* Neon purple outline for the form */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+  max-width: 400px; /* Limit width for the form */
+  width: 100%;
+  animation: slideIn 0.5s ease; /* Animation for form */
+}
+
+/* Form label styling */
+.form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #800080; /* Neon purple color for labels */
+}
+
+/* Input field styling */
+.form-input {
+  background-color: rgba(51, 51, 51, 0.8); /* Dark semi-transparent input */
+  border: 2px solid #800080; /* Neon purple border */
+  color: #ffffff; /* White text */
+  padding: 12px;
+  border-radius: 4px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: #800080; /* Neon purple on focus */
+  background-color: rgba(51, 51, 51, 1); /* Solid background on focus */
+}
+
+/* Submit button styling */
+.submit-button {
+  background: linear-gradient(135deg, #800080, #ff00ff); /* Neon purple gradient for button */
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s; /* Added box-shadow transition */
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(255, 0, 255, 0.6); /* Bright pink shadow on hover */
+}
+
+/* Result container styling */
+.result-container {
+  background-color: rgba(30, 30, 30, 0.8); /* Darker background */
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #800080; /* Neon purple outline */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 100%; /* Full width */
+  max-width: 400px; /* Limit width for the result */
+}
+
+/* Chatbot container styling */
+.chatbot-container {
+  max-width: 400px;
+  width: 100%;
+  background: rgba(30, 30, 30, 0.8); /* Darker background */
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #800080; /* Neon purple outline */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.5s ease; /* Animation for chatbot */
+}
+
+/* Chat messages styling */
+.chat-messages {
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: rgba(51, 51, 51, 0.8); /* Dark semi-transparent chat area */
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Mouse trail styling */
+.mouse-trail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #800080; /* Neon purple color for trail */
+  pointer-events: none; /* Ignore mouse events */
+  transition: transform 0.1s ease; /* Smooth movement */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .app-title {
+    font-size: 2rem; /* Smaller title on small screens */
+  }
+  
+  .loan-form, .chatbot-container, .result-container {
+    max-width: 90%; /* Use more screen width on smaller devices */
+  }
+  
+  .main-content {
+    flex-direction: column; /* Stack elements on small screens */
+    align-items: center; /* Center elements */
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
